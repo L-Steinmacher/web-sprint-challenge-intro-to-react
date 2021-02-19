@@ -36,7 +36,7 @@ const App = () => {
 
     const StyledDiv = styled.div`
     width: 40%;
-    text-align:center
+    text-align:center;
     `
 
     return(
@@ -47,7 +47,7 @@ const App = () => {
   }
   
   const StyledSpan = styled.span`
-   /* font-family: 'Press Start 2P', cursive; */
+   font-family: 'Press Start 2P', cursive;
    color: yellow;
    font-weight: bold;
    font-size:3rem;
