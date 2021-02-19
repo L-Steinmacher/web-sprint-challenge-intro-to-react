@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios'
 import Character from './components/Character'
+import styled from 'styled-components'
 
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
 
   useEffect (()=> {
     const fetchData = ()=> {
-      axios.get(`${Url}`)
+      axios.get(` ${Url}`)
       .then(res => {
         setCurrentPeople(res.data)
       })
@@ -31,23 +32,31 @@ const App = () => {
 
   const People = props => {
     const {data} = props
+
+    const styledDiv = styled.div`
+    width: 40%;
+    `
+
     return(
-    <div>
+    <styledDiv>
       <h2>{props.data.name}</h2>
       <Character data={data} />
-    </div>)
+    </styledDiv>)
   }
   
+  const styledSpan = styled.span`
+   font-family: 'Press Start 2P', cursive;
+   color: yellow;
+  `
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <h1 className="Header">Characters of <styledSpan>Star Wars</styledSpan>!</h1>
         {
           currentPeople.map(person => {
-            return <People data={person} />
+            return <People key={person.id} data={person} />
           })
         }
-      <Character data={currentPeople} />
     </div>
   );
 }
