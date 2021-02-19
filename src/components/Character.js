@@ -12,15 +12,17 @@ const Character = props => {
     const toggle = () => setIsOpen(!isOpen);
   
     const StyledText = styled.div`
-    color: #blue;
-    backgroundv: #blue;
-    text-align:center;
+    color: #0c0c0b;
+    text-align:justify;
+    background: #e5e4e2;
+    margin: 0 auto;
+    padding: 2rem;
 
     `
 
 
     return(
-    <StyledText>
+    <div>
         <Button color="secondary" onClick={toggle} style={{ marginBottom: '1rem' }}>More Info</Button>
         <Collapse isOpen={isOpen}>
         <Card style={{ width: '18rem' }} style={{display: 'flex', flexDirection: 'row'}}>
@@ -32,7 +34,7 @@ const Character = props => {
             </CardBody>
         </Card>
         </Collapse>
-    </StyledText>
+    </div>
     ) 
 }
 

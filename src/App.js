@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios'
 import Character from './components/Character'
 import styled from 'styled-components'
+import { Container } from 'reactstrap';
 
 
 const App = () => {
@@ -33,30 +34,44 @@ const App = () => {
   const People = props => {
     const {data} = props
 
-    const styledDiv = styled.div`
+    const StyledDiv = styled.div`
     width: 40%;
+    text-align:center
     `
 
     return(
-    <styledDiv>
+    <StyledDiv>
       <h2>{props.data.name}</h2>
       <Character data={data} />
-    </styledDiv>)
+    </StyledDiv>)
   }
   
-  const styledSpan = styled.span`
-   font-family: 'Press Start 2P', cursive;
+  const StyledSpan = styled.span`
+   /* font-family: 'Press Start 2P', cursive; */
    color: yellow;
-  `
+   font-weight: bold;
+   font-size:3rem;
+  `;
+
+  const Container =  styled.div`
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items: center;
+  align-content: center;
+
+  `;
 
   return (
     <div className="App">
-      <h1 className="Header">Characters of <styledSpan>Star Wars</styledSpan>!</h1>
+      <h1 className="Header">Characters of <StyledSpan>Star Wars</StyledSpan>!</h1>
+        <Container>
         {
           currentPeople.map(person => {
             return <People key={person.id} data={person} />
           })
         }
+        </Container>
     </div>
   );
 }
