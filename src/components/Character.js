@@ -10,9 +10,9 @@ const Character = props => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
   
-    const styledText = styled.p`
-    color: blue;
-    background: ;
+    const StyledText = styled.p`
+    color: #0c0c0b;
+    backgroundv: #e5e4e2;
     `
 
 
@@ -21,8 +21,10 @@ const Character = props => {
         <Button color="secondary" onClick={toggle} style={{ marginBottom: '1rem' }}>More Info</Button>
         <Collapse isOpen={isOpen}>
         <Card>
-            <CardBody>
-                
+            <CardBody >
+                <StyledText>
+                    {data.name}
+                </StyledText>
             </CardBody>
         </Card>
         </Collapse>

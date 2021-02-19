@@ -29,13 +29,14 @@ const App = () => {
     fetchData()
   },[])
 
-  const People = props => (
-    
+  const People = props => {
+    const {data} = props
+    return(
     <div>
       <h2>{props.data.name}</h2>
-      <Character data={props} />
-    </div>
-  )
+      <Character data={data} />
+    </div>)
+  }
   
 
   return (
