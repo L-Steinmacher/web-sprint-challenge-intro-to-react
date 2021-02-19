@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios'
 import Character from './components/Character'
-import { Button } from 'reactstrap';
+
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -16,7 +16,7 @@ const App = () => {
   const [currentPeople, setCurrentPeople] = useState({});
 
   useEffect (()=> {
-const fetchData = ()=> {
+    const fetchData = ()=> {
       axios.get(`${Url}`)
       .then(res => {
         setCurrentPeople(res.data)
@@ -26,7 +26,7 @@ const fetchData = ()=> {
         console.log(err)
       })
     }
-fetchData()
+    fetchData()
   },[])
 
   const People = props => (
@@ -35,6 +35,8 @@ fetchData()
       <Character data={props} />
     </div>
   )
+
+    console.log(currentPeople)
 
   return (
     <div className="App">
