@@ -13,7 +13,7 @@ const App = () => {
   // sync up with, if any.
   const Url = `https://swapi.dev/api/people/`
 
-  const [currentPeople, setCurrentPeople] = useState({});
+  const [currentPeople, setCurrentPeople] = useState([]);
 
   useEffect (()=> {
     const fetchData = ()=> {
@@ -30,17 +30,22 @@ const App = () => {
   },[])
 
   const People = props => (
+    
     <div>
-      <h2>{props.name}</h2>
+      <h2>{props.data.name}</h2>
       <Character data={props} />
     </div>
   )
-
-    console.log(currentPeople)
+  
 
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
+        {
+          currentPeople.map(person => {
+            return <People data={person} />
+          })
+        }
       <Character data={currentPeople} />
     </div>
   );
